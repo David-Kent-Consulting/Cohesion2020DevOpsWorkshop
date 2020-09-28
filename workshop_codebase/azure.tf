@@ -180,7 +180,7 @@ variable kbcluster_DKCKBCT01 {
         node_count                  = 3
         vm_size                     = "Standard_D2_v2"
         client_id                   = "ff5ea6d4-a56b-489c-a3ff-a8df12e4837b"
-        client_secret               = "Xu8FJf36LuoMfUKPH1Ltjj.058.v_n3hK2"
+        client_secret               = "sM-WVDeq4q-zoa1zVa6eOb75QeiCTL9usc"
         
     }
 }

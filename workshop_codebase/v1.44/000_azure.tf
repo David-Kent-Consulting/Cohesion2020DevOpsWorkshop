@@ -68,6 +68,8 @@ variable "network" {
         subnet0_cidr    = string
         subnet1_name    = string
         subnet1_cidr    = string
+        subnet2_name    = string
+        subnet2_cidr    = string
     })
     default = {
         name            = "TEST_vnet"
@@ -76,6 +78,8 @@ variable "network" {
         subnet0_cidr    = "172.16.0.0/24"
         subnet1_name    = "172_16_1_0_24"
         subnet1_cidr    = "172.16.1.0/24"
+        subnet2_name    = "172_16_2_0_24"
+        subnet2_cidr    = "172.16.2.0/24"
     }
 }
 
@@ -177,10 +181,65 @@ variable kbcluster_DKCKBCT01 {
         kb_name                     = "DKCAKSCT01"
         dns_prefix                  = "dkcaksct01"
         np_name                     = "dkcakc01p0"
-        node_count                  = 3
+        node_count                  = 1
         vm_size                     = "Standard_D2_v2"
         client_id                   = "ff5ea6d4-a56b-489c-a3ff-a8df12e4837b"
         client_secret               = "sM-WVDeq4q-zoa1zVa6eOb75QeiCTL9usc"
         
+    }
+}
+
+variable container_registry_DKCKBCRT01 {
+    type = object({
+        name                        = string
+        sku                         = string
+        admin_enabled               = bool
+        georeplication_locations    = any
+    })
+    default = {
+        name                        = "dkckbcrt01"
+        sku                         = "Premium"
+        admin_enabled               = false
+        georeplication_locations    = ["centralus", "eastus2"]
+    }
+}
+
+variable mysql_DKCMYSQLT01 {
+    type = object({
+        name                                = string
+        administrator_login                 = string
+        administrator_login_password        = string
+        sku_name                            = string
+        capacity                            = number
+        tier                                = string
+        family                              = string
+        storage_mb                          = number
+        version                             = string
+        auto_grow_enabled                   = bool
+        backup_retention_days               = number
+        geo_redundant_backup                = string
+        infrastructure_encryption_enabled   = bool
+        public_network_access_enabled       = bool
+        ssl_enforcement_enabled             = bool
+        ssl_minimal_tls_version_enforced    = string
+    })
+    default = {
+        name                                = "dkcmysqlt01"
+        administrator_login                 = "mysqladminun"
+        administrator_login_password        = "E7@1!CwQaVt6"
+        sku_name                            = "B_Gen5_2"
+        capacity                            = 2
+        tier                                = "Basic"
+        family                              = "Gen5"
+        storage_mb                          = 5120
+        version                             = "5.9"
+        auto_grow_enabled                   = false
+        backup_retention_days               = 31
+        geo_redundant_backup                = "Disabled"
+        infrastructure_encryption_enabled   = true
+        public_network_access_enabled       = false
+        ssl_enforcement_enabled             = true
+        ssl_minimal_tls_version_enforced    = "TLS1_2"
+
     }
 }

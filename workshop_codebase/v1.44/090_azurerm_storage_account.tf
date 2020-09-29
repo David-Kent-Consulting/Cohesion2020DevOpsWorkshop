@@ -1,10 +1,4 @@
-# resource "random_integer" "storage_random_integer" {
-#     min     = 1000
-#     max     = 9999
-#     keepers{
-#         random_integer = "${var.storage_account.random_integer}"
-#     }
-# }
+
 
 resource "azurerm_storage_account" "my_storage_account" {
   name                      = "teststgact${random_string.storage_affix.result}"

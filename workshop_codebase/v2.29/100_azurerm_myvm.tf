@@ -27,12 +27,13 @@ resource "azurerm_network_interface" "DKCESMT01_nic01" {
 
 
 resource "azurerm_linux_virtual_machine" "azurevm_DKCESMT01" {
-    name                    = var.azurevm_DKCESMT01.vm_name
-    location                = var.azure_region
-    resource_group_name     = azurerm_resource_group.myResourceGroup.name
-    size                    = var.azurevm_DKCESMT01.size
-    admin_username          = var.azurevm_DKCESMT01.username
-    admin_password          = var.azurevm_DKCESMT01.admin_password
+    name                            = var.azurevm_DKCESMT01.vm_name
+    location                        = var.azure_region
+    resource_group_name             = azurerm_resource_group.myResourceGroup.name
+    size                            = var.azurevm_DKCESMT01.size
+    admin_username                  = var.azurevm_DKCESMT01.username
+    admin_password                  = var.azurevm_DKCESMT01.admin_password
+    disable_password_authentication = false
     network_interface_ids = [
         azurerm_network_interface.DKCESMT01_nic01.id,
     ]

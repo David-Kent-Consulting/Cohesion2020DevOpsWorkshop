@@ -32,15 +32,16 @@ resource "azurerm_linux_virtual_machine" "azurevm_DKCESMT01" {
     resource_group_name     = azurerm_resource_group.myResourceGroup.name
     size                    = var.azurevm_DKCESMT01.size
     admin_username          = var.azurevm_DKCESMT01.username
+    admin_password          = var.azurevm_DKCESMT01.admin_password
     network_interface_ids = [
         azurerm_network_interface.DKCESMT01_nic01.id,
     ]
 
 
-    admin_ssh_key {
-        username            = var.azurevm_DKCESMT01.username
-        public_key          = file("~/.ssh/id_rsa.pub")
-    }
+    # admin_ssh_key {
+    #     username            = var.azurevm_DKCESMT01.username
+    #     public_key          = file("~/.ssh/id_rsa.pub")
+    # }
 
     os_disk {
         name                 = var.azurevm_DKCESMT01.os_disk_name

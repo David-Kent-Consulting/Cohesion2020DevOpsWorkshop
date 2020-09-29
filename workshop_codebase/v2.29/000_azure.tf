@@ -140,6 +140,7 @@ variable "azurevm_DKCESMT01" {
         version                     = string
         size                        = string
         username                    = string
+        admin_password              = string
         os_disk_name                = string
         os_disk_caching             = string
         os_storage_act_type         = string
@@ -157,6 +158,7 @@ variable "azurevm_DKCESMT01" {
         version                     = "latest"
         size                        = "Standard_B2ms"
         username                    = "azureuser"
+        admin_password              = "d54mcQ!$4LPi"
         os_disk_name                = "DKCESMT01_osdisk_00"
         os_disk_caching             = "ReadWrite"
         os_storage_act_type         = "Standard_LRS"

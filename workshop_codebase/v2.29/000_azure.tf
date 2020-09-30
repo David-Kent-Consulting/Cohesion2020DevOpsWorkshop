@@ -242,3 +242,38 @@ variable mysql_DKCMYSQLT01 {
 
     }
 }
+
+variable A10_security_appliance {
+    type = object({
+        vm_nicname                  = string
+        vm_nicip_alloc_method       = string
+        vm_name                     = string
+        publisher                   = string
+        offer                       = string
+        sku                         = string
+        version                     = string
+        size                        = string
+        username                    = string
+        admin_password              = string
+        os_disk_name                = string
+        os_disk_caching             = string
+        os_storage_act_type         = string
+        os_disk_size_gb             = number
+    })
+    default = {
+        vm_nicname                  = "DKCA10T01_nic01"
+        vm_nicip_alloc_method       = "Dynamic"
+        publisher                   = "a10networks"
+        offer                       = "a10-vthunder-adc"
+        sku                         = "vthunder_byol"
+        version                     = "Latest"
+        size                        = "Standard_DS3_v2"
+        vm_name                     = "DKCA10T01"
+        username                    = "a10user"
+        admin_password              = "TjrV8&^sQxz97"
+        os_disk_name                = "DKCA10T01_osdisk_00"
+        os_disk_caching             = "ReadWrite"
+        os_storage_act_type         = "Standard_LRS"
+        os_disk_size_gb             = 100
+    }
+}

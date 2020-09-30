@@ -45,17 +45,22 @@ resource "azurerm_linux_virtual_machine" "azurevm_DKCESMT01" {
     # }
 
     os_disk {
-        name                 = var.azurevm_DKCESMT01.os_disk_name
-        disk_size_gb         = var.azurevm_DKCESMT01.os_disk_size_gb
-        caching              = var.azurevm_DKCESMT01.os_disk_caching
-        storage_account_type = var.azurevm_DKCESMT01.os_storage_act_type
+        name                        = var.azurevm_DKCESMT01.os_disk_name
+        disk_size_gb                = var.azurevm_DKCESMT01.os_disk_size_gb
+        caching                     = var.azurevm_DKCESMT01.os_disk_caching
+        storage_account_type        = var.azurevm_DKCESMT01.os_storage_act_type
+    }
+    
+    boot_diagnostics {
+        storage_account_uri         = azurerm_storage_account.my_storage_account.primary_blob_endpoint
     }
 
+
     source_image_reference {
-      publisher = var.azurevm_DKCESMT01.publisher
-      offer     = var.azurevm_DKCESMT01.offer
-      sku       = var.azurevm_DKCESMT01.sku
-      version   = "latest"
+      publisher                     = var.azurevm_DKCESMT01.publisher
+      offer                         = var.azurevm_DKCESMT01.offer
+      sku                           = var.azurevm_DKCESMT01.sku
+      version                       = "latest"
     }
 
 

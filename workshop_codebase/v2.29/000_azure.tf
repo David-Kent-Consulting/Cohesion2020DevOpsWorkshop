@@ -7,7 +7,18 @@
 // see versions at https://github.com/terraform-providers/terraform-provider-azurerm
 
 terraform {
-  required_version = ">= 0.13.3"
+  required_version = ">= 0.13.4"
+
+  backend "azurerm" {
+    storage_account_name = "cohesionkvault"
+    container_name       = "tformstate"
+    access_key           = "shJ1ZWdCZdB1W+g+CyliCmE0V7nsng2jr3KOLUpN5Xf1uewSCuHUcnOhcLPCXukRssFPphYrkkpzRaDrk0WSyw=="
+
+    // entry below should either be dev.terraform.tstate or prod.terraform.tstate for client tenant
+    // for individual tstate, it should be AzUsrName.terraform.tstate
+    // example    key                  = "prod.TEST_rg.terraform.tfstate"
+    key = "TEST_rg.terraform.tstate"
+  }
 }
 provider "azurerm" {
   version = "= 2.29"
@@ -34,15 +45,15 @@ provider "azurerm" {
 
 # These action must be completed prior to implementing an Azure DevOps piepline.
 
-terraform {
-  backend "azurerm" {
-    storage_account_name = "cohesionkvault"
-    container_name       = "tformstate"
-    access_key           = "shJ1ZWdCZdB1W+g+CyliCmE0V7nsng2jr3KOLUpN5Xf1uewSCuHUcnOhcLPCXukRssFPphYrkkpzRaDrk0WSyw=="
+# terraform {
+#   backend "azurerm" {
+#     storage_account_name = "cohesionkvault"
+#     container_name       = "tformstate"
+#     access_key           = "shJ1ZWdCZdB1W+g+CyliCmE0V7nsng2jr3KOLUpN5Xf1uewSCuHUcnOhcLPCXukRssFPphYrkkpzRaDrk0WSyw=="
 
-    // entry below should either be dev.terraform.tstate or prod.terraform.tstate for client tenant
-    // for individual tstate, it should be AzUsrName.terraform.tstate
-    // example    key                  = "prod.TEST_rg.terraform.tfstate"
-    key = "TEST_rg.terraform.tstate"
-  }
-}
+#     // entry below should either be dev.terraform.tstate or prod.terraform.tstate for client tenant
+#     // for individual tstate, it should be AzUsrName.terraform.tstate
+#     // example    key                  = "prod.TEST_rg.terraform.tfstate"
+#     key = "TEST_rg.terraform.tstate"
+#   }
+# }

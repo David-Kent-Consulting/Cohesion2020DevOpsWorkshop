@@ -194,7 +194,7 @@ variable mysql_DKCMYSQLT01 {
     }
 }
 
-variable A10_security_appliance {
+variable KEMP_security_appliance {
     type = object({
         vm_nicname                  = string
         vm_nicip_alloc_method       = string
@@ -212,17 +212,17 @@ variable A10_security_appliance {
         os_disk_size_gb             = number
     })
     default = {
-        vm_nicname                  = "DKCA10T01_nic01"
+        vm_nicname                  = "DKCKMPT01_nic01"
         vm_nicip_alloc_method       = "Dynamic"
-        publisher                   = "a10networks"
-        offer                       = "a10-vthunder-adc"
-        sku                         = "vthunder_byol"
+        publisher                   = "Canonical"
+        offer                       = "UbuntuServer"
+        sku                         = "18.04-LTS"        
         version                     = "Latest"
         size                        = "Standard_DS3_v2"
-        vm_name                     = "DKCA10T01"
-        username                    = "a10user"
+        vm_name                     = "DKCKMPT01"
+        username                    = "azure"
         admin_password              = "TjrV8&^sQxz97"
-        os_disk_name                = "DKCA10T01_osdisk_00"
+        os_disk_name                = "DKCKMPT01_osdisk_00"
         os_disk_caching             = "ReadWrite"
         os_storage_act_type         = "Standard_LRS"
         os_disk_size_gb             = 100

@@ -2,7 +2,7 @@
 // AZ CLI 2.11.1
 // Python 3.8.2
 // Adal 1.2.2
-// terraform version v0.13.3
+// terraform version v0.13.4
 // azurerm terraform module v2.29
 // see versions at https://github.com/terraform-providers/terraform-provider-azurerm
 

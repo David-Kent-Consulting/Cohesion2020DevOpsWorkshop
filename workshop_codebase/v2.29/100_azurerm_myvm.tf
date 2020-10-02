@@ -18,8 +18,8 @@ resource "azurerm_network_interface" "DKCESMT01_nic01" {
         name                            = "ipconfig1"
         subnet_id                       = azurerm_subnet.my_subnet0.id
         private_ip_address_allocation   = var.azurevm_DKCESMT01.vm_nicip_alloc_method
+        public_ip_address_id            = azurerm_public_ip.DKCESMT01_pubip.id
     }
-
     tags = {
         accounting  = var.accounting_tag
     }

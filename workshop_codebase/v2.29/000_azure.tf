@@ -27,7 +27,7 @@
 # These action must be completed prior to implementing an Azure DevOps piepline.
 
 terraform {
-  required_version = ">= 0.13.4"
+  required_version = "= 0.13.4"
 
   backend "azurerm" {
     storage_account_name = "cohesionkvault"

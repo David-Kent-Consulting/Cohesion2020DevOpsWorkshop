@@ -144,3 +144,17 @@ az aks create \
 --node-count 3 \
 --no-ssh-key \
 --node-vm-size "Standard_B2ms"
+
+# tear it down
+az aks delete --name "DKCKBC01" --resource-group "TEST_rg"
+
+# in AZ Powershell because it is easier to do
+
+# WARNING! WARNING! WARNING! WARNING! WARNING! 
+# Don't do in production, very dangerous
+# WARNING! WARNING! WARNING! WARNING! WARNING! 
+$myVault = Get-AzRecoveryServicesVault -ResourceGroupName test_rg
+Get-AzRecoveryServicesVaultProperty -VaultId $myVault.id
+Set-AzRecoveryServicesVaultProperty -VaultId $myVault.id -SoftDeleteFeatureState "Disable"
+Remove-AzRecoveryServicesVault -Vault $myVault
+Remove-AzResourceGroup -Name "TEST_rg"

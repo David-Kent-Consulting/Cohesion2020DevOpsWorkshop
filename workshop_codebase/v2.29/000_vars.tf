@@ -1,4 +1,4 @@
-// declar all variables
+// declare all variables
 
 
 variable "azure_region" {
@@ -8,7 +8,7 @@ variable "azure_region" {
 
 variable "accounting_tag" {
     type    = string
-    default = "0230_compsci"
+    default = "0231_compsci"
 }
 
 variable "resource_group"{

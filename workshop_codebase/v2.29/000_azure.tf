@@ -26,13 +26,15 @@
 
 # These action must be completed prior to implementing an Azure DevOps piepline.
 
+# adjust the version accordingly but also ensure you have downloaded the correct Terraform
+# client that matches the version defined below.
 terraform {
   required_version = "= 0.13.4"
 
   backend "azurerm" {
-    storage_account_name = "cohesionkvault"
-    container_name       = "tformstate"
-    access_key           = "shJ1ZWdCZdB1W+g+CyliCmE0V7nsng2jr3KOLUpN5Xf1uewSCuHUcnOhcLPCXukRssFPphYrkkpzRaDrk0WSyw=="
+    storage_account_name = "<your storage account name here"
+    container_name       = "<your storage container here>"
+    access_key           = "<your access key here>"
 
     // entry below should either be dev.terraform.tstate or prod.terraform.tstate for client tenant
     // for individual tstate, it should be AzUsrName.terraform.tstate
@@ -40,6 +42,7 @@ terraform {
     key = "TEST_rg.terraform.tstate"
   }
 }
+# adjust the version accordingly
 provider "azurerm" {
   version = "= 2.29"
   features {}

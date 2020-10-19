@@ -38,7 +38,7 @@ terraform {
   backend "azurerm" {
     storage_account_name = "cohesionkvault"
     container_name       = "tformstate"
-    access_key           = "shJ1ZWdCZdB1W+g+CyliCmE0V7nsng2jr3KOLUpN5Xf1uewSCuHUcnOhcLPCXukRssFPphYrkkpzRaDrk0WSyw=="
+    access_key           = "<your storage account key goes here>"
 
     // entry below should either be dev.terraform.tstate or prod.terraform.tstate for client tenant
     // for individual tstate, it should be AzUsrName.terraform.tstate
